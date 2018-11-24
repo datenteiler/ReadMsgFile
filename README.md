@@ -1,11 +1,13 @@
 # ReadMsgFile
 
-Read Outlook MSG files with this PowerShell cmdlet without the need for Outlook 
+Read Outlook MSG files with this PowerShell cmdlet without the need for Outlook. 
 
-PowerShell binary cmdlet Read-MsgFile and Get-MsgAttachment
------------------------------------------------------------
 
-Read-MsgFile and Get-MsgAttachment reads emails saved in Microsoft Outlook's .msg files and extracts attachments from them.
+PowerShell binary cmdlets Read-MsgFile and Get-MsgAttachment
+------------------------------------------------------------
+
+* Read-MsgFile reads Microsoft Outlook MSG files without the need for Outlook.
+* Get-MsgAttachment extracts attachments from them.
 
 
 How to compile and start:
