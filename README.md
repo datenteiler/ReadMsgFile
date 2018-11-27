@@ -33,6 +33,12 @@ You can download the module from PSGallery in PowerShell with this command:
 
 ```Install-Module -Name ReadMsgFile```
 
-This works for Linux and Windows and should work for MacOS X, too.
+This works for Linux ...
+
+![read-msgfile](https://user-images.githubusercontent.com/3180008/49112709-c68c5500-f293-11e8-839e-26b8df7b1248.png)
+
+... and Windows ...
 
 ![screenshot_20181127_221001](https://user-images.githubusercontent.com/3180008/49111855-9a6fd480-f291-11e8-8899-b2b0ef9a53da.png)
+
+... and should work for MacOS X, too.
