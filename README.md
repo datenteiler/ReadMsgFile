@@ -31,6 +31,8 @@ Installation from PowerShell Gallery (PSGallery)
 
 You can download the module from PSGallery in PowerShell with this command:
 
- Install-Module -Name ReadMsgFile 
+```Install-Module -Name ReadMsgFile```
+
+
 
 
