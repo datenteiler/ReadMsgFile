@@ -33,5 +33,4 @@ You can download the module from PSGallery in PowerShell with this command:
 
 ```Install-Module -Name ReadMsgFile```
 
-https://user-images.githubusercontent.com/3180008/49111855-9a6fd480-f291-11e8-8899-b2b0ef9a53da.png
-
+![screenshot_20181127_221001](https://user-images.githubusercontent.com/3180008/49111855-9a6fd480-f291-11e8-8899-b2b0ef9a53da.png)
