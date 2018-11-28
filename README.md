@@ -13,7 +13,7 @@ PowerShell binary cmdlets Read-MsgFile and Get-MsgAttachment
 How to compile and start:
 -------------------------
 
-In PowerShell use the following commands to compile the cmdlet with .NET core. :
+In PowerShell use the following commands to compile the cmdlet with .NET core:
 
 ```
 dotnet restore
