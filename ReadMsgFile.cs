@@ -15,7 +15,7 @@ namespace MsgFiles
     ///   <para>Read a .msg file:</para>
     ///   <code>Read-MsgFile -File sample.msg</code>
     /// </example>
-    [Cmdlet("Read", "MsgFile")]
+    [Cmdlet(VerbsCommunications.Read, "MsgFile")]
     public class ReadMsgFile : PSCmdlet
     {
         /// <summary>
@@ -33,25 +33,67 @@ namespace MsgFiles
         {
             base.ProcessRecord();
             string fileName = this.File;
-            using (var msg = new MsgReader.Outlook.Storage.Message(fileName))
+
+            // Get the current working directory using the core command API
+            using (var msg = new MsgReader.Outlook.Storage.Message(System.IO.Path.Combine(SessionState.Path.CurrentLocation.Path.ToString(), fileName)))
             {
-                var from = msg.Sender;
-                var sentTo = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.To, true, true);
-                var sentCc = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.Cc, true, true);
+                var from = msg.GetEmailSender(false, false); // msg.Sender;
+                var sentTo = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.To, false, false);
+                var sentCc = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.Cc, false, false);
                 var sentOn = msg.SentOn;
                 var subject = msg.Subject;
                 int CountAttachments = msg.Attachments.Count;
-
+                
+                // Create PowerShell object
                 PSObject responseObject = new PSObject();
 
-                responseObject.Members.Add(new PSNoteProperty("From", from.Email));
-                responseObject.Members.Add(new PSNoteProperty("To", sentTo));
-                responseObject.Members.Add(new PSNoteProperty("CC", sentCc));
-                responseObject.Members.Add(new PSNoteProperty("Sent", sentOn.Value));
+                // Add members to the object
+                if (!String.IsNullOrEmpty(from)) 
+                { 
+                    responseObject.Members.Add(new PSNoteProperty("From", from)); 
+                }
+                else
+                {
+                    responseObject.Members.Add(new PSNoteProperty("From", string.Empty)); 
+                }
+
+                if (!String.IsNullOrEmpty(sentTo)) 
+                { 
+                    responseObject.Members.Add(new PSNoteProperty("To", sentTo)); 
+                }
+                else
+                {
+                    responseObject.Members.Add(new PSNoteProperty("To", string.Empty));
+                }
+                if (!String.IsNullOrEmpty(sentCc)) 
+                { 
+                    responseObject.Members.Add(new PSNoteProperty("CC", sentCc)); 
+                }
+                else
+                {
+                    responseObject.Members.Add(new PSNoteProperty("CC", string.Empty));
+                }
+                if (sentOn.HasValue) 
+                { 
+                    responseObject.Members.Add(new PSNoteProperty("Sent", sentOn.Value)); 
+                }
+                else
+                {
+                    responseObject.Members.Add(new PSNoteProperty("Sent", string.Empty));
+                }
                 responseObject.Members.Add(new PSNoteProperty("Attachments", CountAttachments));
-                responseObject.Members.Add(new PSNoteProperty("Subject", subject));
+                if (!String.IsNullOrEmpty(subject)) 
+                { 
+                    responseObject.Members.Add(new PSNoteProperty("Subject", subject)); 
+                }
+                else
+                {
+                    responseObject.Members.Add(new PSNoteProperty("Subject", string.Empty));
+                }
                 responseObject.Members.Add(new PSNoteProperty("Body", msg.BodyText));
-                this.WriteObject(responseObject);
+                
+                // Write PSObject
+                this.WriteObject(responseObject);               
             }
         }
     }
@@ -92,9 +134,10 @@ namespace MsgFiles
         protected override void ProcessRecord()
         {
             base.ProcessRecord();
-            string msgfile = this.File;
+            string fileName = this.File;
             string path = this.Path;
-            using (var msg = new MsgReader.Outlook.Storage.Message(msgfile))
+            // Get the current working directory using the core command API
+            using (var msg = new MsgReader.Outlook.Storage.Message(System.IO.Path.Combine(SessionState.Path.CurrentLocation.Path.ToString(), fileName)))
             {
                 foreach (MsgReader.Outlook.Storage.Attachment attach in msg.Attachments)
                 {
