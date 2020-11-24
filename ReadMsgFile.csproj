@@ -1,10 +1,18 @@
 <Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RuntimeIdentifiers>win10-x64;linux-x64</RuntimeIdentifiers>
+	<RuntimeIdentifiers>win10-x64;linux-x64</RuntimeIdentifiers>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageReference Include="MSGReader" Version="3.4.1" />
-    <PackageReference Include="PowerShellStandard.Library" Version="5.1.0-preview-06" />
+    <PackageReference Include="MsgReader" Version="3.9.4" />
+    <PackageReference Include="PowerShellStandard.Library" Version="5.1.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="ReadMsgFile.cs">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Compile>
   </ItemGroup>
 </Project>
+
