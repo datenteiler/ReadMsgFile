@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<helpItems schema="maml">
+	<command:command xmlns:maml="http://schemas.microsoft.com/maml/2004/10" xmlns:command="http://schemas.microsoft.com/maml/dev/command/2004/10" xmlns:dev="http://schemas.microsoft.com/maml/dev/2004/10" xmlns:MSHelp="http://msdn.microsoft.com/mshelp">
+		<command:details>
+	  <command:name>Read-MsgFile</command:name>
+  <maml:description>
+	   <maml:para>
+		  The Cmdlet Read-MsgFile automates the extraction of key email data like from, to, cc, date, subject and body from emails saved in Microsoft Outlook's .msg files.
+		</maml:para>
+  </maml:description>
+	<maml:copyright>
+		<maml:para />
+	</maml:copyright>
+	<command:verb>Initialize</command:verb>
+	<command:noun>CMLogging</command:noun>
+	<dev:version />
+  </command:details>
+  <command:syntax>
+    <!--Add syntax information here-->
+  </command:syntax>
+  <command:parameters>
+    <!--Add parameter information here-->
+  </command:parameters>
+  <command:inputTypes>
+    <!--Add input type information here-->
+  </command:inputTypes>
+  <command:returnValues>
+    <!--Add return value information here-->
+  </command:returnValues>
+  <maml:alertSet>
+    <!--Add Note information here-->
+  </maml:alertSet>
+  <command:examples>
+	  <command:example>
+		  <maml:title>-------------------------- Example 1 --------------------------</maml:title>
+		  <maml:introduction>
+			  <maml:paragraph>PS C:\&gt;</maml:paragraph>
+		  </maml:introduction>
+		  <dev:code>Read-MsgFile -File &quot;MSG-File.msg&quot;</dev:code>
+		  <dev:remarks>
+			  <maml:para>This example shows the content of the MSG file.</maml:para>
+			  <maml:para />
+			  <maml:para />
+			  <maml:para></maml:para>
+		  </dev:remarks>
+		  <command:commandLines>
+			  <command:commandLine>
+				  <command:commandText>
+					  <maml:para />
+				  </command:commandText>
+			  </command:commandLine>
+		  </command:commandLines>
+	  </command:example>
+  </command:examples>
+  <maml:relatedLinks>
+    <!--Add links to related content here-->
+  </maml:relatedLinks>
+</command:command>
+</helpItems>
