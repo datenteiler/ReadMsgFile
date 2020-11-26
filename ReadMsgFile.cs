@@ -37,11 +37,11 @@ namespace MsgFiles
             // Get the current working directory using the core command API
             using (var msg = new MsgReader.Outlook.Storage.Message(System.IO.Path.Combine(SessionState.Path.CurrentLocation.Path.ToString(), fileName)))
             {
-                var from = msg.GetEmailSender(false, false); // msg.Sender;
-                var sentTo = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.To, false, false);
-                var sentCc = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.Cc, false, false);
+                string from = msg.GetEmailSender(false, false); // msg.Sender;
+                string sentTo = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.To, false, false);
+                string sentCc = msg.GetEmailRecipients(MsgReader.Outlook.RecipientType.Cc, false, false);
                 var sentOn = msg.SentOn;
-                var subject = msg.Subject;
+                string subject = msg.Subject;
                 int CountAttachments = msg.Attachments.Count;
                 
                 // Create PowerShell object
@@ -90,8 +90,15 @@ namespace MsgFiles
                 {
                     responseObject.Members.Add(new PSNoteProperty("Subject", string.Empty));
                 }
-                responseObject.Members.Add(new PSNoteProperty("Body", msg.BodyText));
-                
+                if (String.IsNullOrEmpty(msg.BodyText))
+                {
+                    responseObject.Members.Add(new PSNoteProperty("Body", msg.BodyHtml));
+                }
+                else
+                {
+                    responseObject.Members.Add(new PSNoteProperty("Body", msg.BodyText));
+                }
+
                 // Write PSObject
                 this.WriteObject(responseObject);               
             }
