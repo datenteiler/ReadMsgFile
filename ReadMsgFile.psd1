@@ -1,6 +1,6 @@
 @{
 RootModule = 'ReadMsgFile.dll'
-ModuleVersion = '1.2'
+ModuleVersion = '1.3'
 GUID = '7f86d981-137d-4d72-a334-5303b95b2475'
 Author = 'Christian Imhorst'
 CompanyName = 'www.datenteiler.de'
