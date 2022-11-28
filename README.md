@@ -1,8 +1,6 @@
 # ReadMsgFile
 
-Read Outlook MSG files with this PowerShell cmdlet without the need for Outlook. 
-
-Version 1.2 of the Module works with Windows PowerShell. Since Version 2.0 you need PowerShell 7 or higher. 
+Read Outlook MSG files with this PowerShell cmdlet without the need for Outlook.
 
 
 PowerShell binary cmdlets Read-MsgFile and Get-MsgAttachment
