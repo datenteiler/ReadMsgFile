@@ -18,7 +18,7 @@ In PowerShell use the following commands to compile the cmdlet with .NET core:
 ```
 dotnet restore
 dotnet publish -c Release
-ipmo ./bin/Release/net7.0/publish/ReadMsgFile.dll
+ipmo .\bin\Release\netstandard2.0\publish\ReadMsgFile.dll
 Read-MsgFile -File sample.msg 
 ```
 
