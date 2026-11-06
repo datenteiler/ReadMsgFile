@@ -22,7 +22,7 @@ ipmo .\bin\Release\netstandard2.0\publish\ReadMsgFile.dll
 Read-MsgFile -File sample.msg 
 ```
 
-The cmdlet will show the content of the MSG file like sender and receiver, the email body etc. The output are objects, not only text.
+The cmdlet will show the content of the MSG file like sender and receiver, the email body, and the Message-ID (as `MessageId`) etc. The output are objects, not only text.
 
 The cmdlet is using https://github.com/Sicos1977/MSGReader and https://github.com/ironfede/openmcdf to extract the information from the MSG file. 
 
