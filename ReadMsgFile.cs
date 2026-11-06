@@ -8,7 +8,7 @@ namespace MsgFiles
 {
     /// <summary>
     /// <para type="synopsis">Reads emails saved in Microsoft Outlook's .msg files.</para>
-    /// <para type="description">The Cmdlet Read-MsgFile automates the extraction of key email data like from, to, cc, date, subject and body from emails saved in Microsoft Outlook's .msg files.</para>
+    /// <para type="description">The Cmdlet Read-MsgFile automates the extraction of key email data like from, to, cc, date, subject, Message-ID and body from emails saved in Microsoft Outlook's .msg files.</para>
     /// </summary>
     /// <para type="link" uri="https://www.datenteiler.de/">Homepage of datenteiler</para>   
     /// <example>
@@ -82,6 +82,7 @@ namespace MsgFiles
                     responseObject.Members.Add(new PSNoteProperty("Sent", string.Empty));
                 }
                 responseObject.Members.Add(new PSNoteProperty("Attachments", CountAttachments));
+                responseObject.Members.Add(new PSNoteProperty("MessageId", msg.Id ?? string.Empty));
                 if (!String.IsNullOrEmpty(subject)) 
                 { 
                     responseObject.Members.Add(new PSNoteProperty("Subject", subject)); 
