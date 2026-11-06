@@ -24,6 +24,17 @@ Read-MsgFile -File sample.msg
 
 The cmdlet will show the content of the MSG file like sender and receiver, the email body, and the Message-ID (as `MessageId`) etc. The output are objects, not only text.
 
+Downloadable module package
+---------------------------
+
+Pushing a version tag such as `v2.1` builds a downloadable ZIP artifact in the GitHub Actions run. Download and extract the `ReadMsgFile-v2.1` artifact, then import the module:
+
+```powershell
+Import-Module .\ReadMsgFile\ReadMsgFile.psd1
+```
+
+The workflow creates a downloadable build artifact only; it does not publish the module to a package repository.
+
 The cmdlet is using https://github.com/Sicos1977/MSGReader and https://github.com/ironfede/openmcdf to extract the information from the MSG file. 
 
 Installation from PowerShell Gallery (PSGallery)
