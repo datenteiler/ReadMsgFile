@@ -6,7 +6,7 @@ on:
       - 'v*'
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   build:
@@ -29,9 +29,21 @@ jobs:
           test -f package/ReadMsgFile/ReadMsgFile.dll-Help.xml
           test -f package/ReadMsgFile/LICENSE
 
+      - name: Archive module
+        run: |
+          cd package/ReadMsgFile
+          zip -r "../../ReadMsgFile-${GITHUB_REF_NAME}.zip" .
+
       - name: Upload downloadable module
         uses: actions/upload-artifact@v4
         with:
           name: ReadMsgFile-${{ github.ref_name }}
           path: package/
           if-no-files-found: error
+
+      - name: Publish GitHub release asset
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1 || gh release create "$GITHUB_REF_NAME" --title "$GITHUB_REF_NAME" --generate-notes
+          gh release upload "$GITHUB_REF_NAME" "ReadMsgFile-${GITHUB_REF_NAME}.zip" --clobber

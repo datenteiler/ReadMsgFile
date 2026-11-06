@@ -27,13 +27,13 @@ The cmdlet will show the content of the MSG file like sender and receiver, the e
 Downloadable module package
 ---------------------------
 
-Pushing a version tag such as `v2.1` builds a downloadable ZIP artifact in the GitHub Actions run. Download and extract the `ReadMsgFile-v2.1` artifact, then import the module:
+Pushing a version tag such as `v2.1` creates a GitHub Release with a `ReadMsgFile-v2.1.zip` asset containing the compiled module. Download and extract the asset, then import the module:
 
 ```powershell
-Import-Module .\ReadMsgFile\ReadMsgFile.psd1
+Import-Module .\ReadMsgFile.psd1
 ```
 
-The workflow creates a downloadable build artifact only; it does not publish the module to a package repository.
+The workflow also uploads a build artifact to the GitHub Actions run; it does not publish the module to a package repository.
 
 The cmdlet is using https://github.com/Sicos1977/MSGReader and https://github.com/ironfede/openmcdf to extract the information from the MSG file. 
 
