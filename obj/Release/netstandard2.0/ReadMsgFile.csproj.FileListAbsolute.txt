@@ -1,0 +1,11 @@
+/home/runner/work/ReadMsgFile/ReadMsgFile/bin/Release/netstandard2.0/ReadMsgFile.cs
+/home/runner/work/ReadMsgFile/ReadMsgFile/bin/Release/netstandard2.0/ReadMsgFile.deps.json
+/home/runner/work/ReadMsgFile/ReadMsgFile/bin/Release/netstandard2.0/ReadMsgFile.dll
+/home/runner/work/ReadMsgFile/ReadMsgFile/bin/Release/netstandard2.0/ReadMsgFile.pdb
+/home/runner/work/ReadMsgFile/ReadMsgFile/obj/Release/netstandard2.0/ReadMsgFile.csproj.AssemblyReference.cache
+/home/runner/work/ReadMsgFile/ReadMsgFile/obj/Release/netstandard2.0/ReadMsgFile.GeneratedMSBuildEditorConfig.editorconfig
+/home/runner/work/ReadMsgFile/ReadMsgFile/obj/Release/netstandard2.0/ReadMsgFile.AssemblyInfoInputs.cache
+/home/runner/work/ReadMsgFile/ReadMsgFile/obj/Release/netstandard2.0/ReadMsgFile.AssemblyInfo.cs
+/home/runner/work/ReadMsgFile/ReadMsgFile/obj/Release/netstandard2.0/ReadMsgFile.csproj.CoreCompileInputs.cache
+/home/runner/work/ReadMsgFile/ReadMsgFile/obj/Release/netstandard2.0/ReadMsgFile.dll
+/home/runner/work/ReadMsgFile/ReadMsgFile/obj/Release/netstandard2.0/ReadMsgFile.pdb

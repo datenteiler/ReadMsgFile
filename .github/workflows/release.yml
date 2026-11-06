@@ -1,0 +1,37 @@
+name: Build release package
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+
+      - name: Publish module
+        run: dotnet publish ReadMsgFile.csproj --configuration Release --output package/ReadMsgFile
+
+      - name: Assemble downloadable package
+        run: |
+          cp ReadMsgFile.psd1 ReadMsgFile.dll-Help.xml LICENSE README.md package/ReadMsgFile/
+          test -f package/ReadMsgFile/ReadMsgFile.dll
+          test -f package/ReadMsgFile/ReadMsgFile.psd1
+          test -f package/ReadMsgFile/ReadMsgFile.dll-Help.xml
+          test -f package/ReadMsgFile/LICENSE
+
+      - name: Upload downloadable module
+        uses: actions/upload-artifact@v4
+        with:
+          name: ReadMsgFile-${{ github.ref_name }}
+          path: package/
+          if-no-files-found: error
