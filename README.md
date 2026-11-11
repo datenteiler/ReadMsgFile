@@ -22,7 +22,18 @@ ipmo .\bin\Release\netstandard2.0\publish\ReadMsgFile.dll
 Read-MsgFile -File sample.msg 
 ```
 
-The cmdlet will show the content of the MSG file like sender and receiver, the email body etc. The output are objects, not only text.
+The cmdlet will show the content of the MSG file like sender and receiver, the email body, and the Message-ID (as `MessageId`) etc. The output are objects, not only text.
+
+Downloadable module package
+---------------------------
+
+Pushing a version tag such as `v2.1` creates a GitHub Release with a `ReadMsgFile-v2.1.zip` asset containing the compiled module. Download and extract the asset, then import the module:
+
+```powershell
+Import-Module .\ReadMsgFile.psd1
+```
+
+The workflow also uploads a build artifact to the GitHub Actions run; it does not publish the module to a package repository.
 
 The cmdlet is using https://github.com/Sicos1977/MSGReader and https://github.com/ironfede/openmcdf to extract the information from the MSG file. 
 
